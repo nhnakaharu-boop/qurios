@@ -159,7 +159,7 @@ function LoginForm() {
   return (
     <div className="flex min-h-screen">
       {/* LEFT */}
-      <div className="w-full max-w-[440px] flex-shrink-0 bg-[--surface] border-r border-[--border] flex flex-col p-10 overflow-y-auto">
+      <div className="w-full max-w-[440px] flex-shrink-0 bg-[--surface] border-r border-[--border] flex flex-col p-6 md:p-10 overflow-y-auto">
         <Link href="/" className="text-xl font-bold text-[--blue] mb-10 tracking-tight no-underline">Qurios</Link>
 
         {/* Tab switcher */}

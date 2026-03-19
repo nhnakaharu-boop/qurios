@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        mono: ['DM Mono', 'Menlo', 'monospace'],
+        sans: ['var(--font-inter)', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       colors: {
         brand: { 600: '#2563EB', 700: '#1D4ED8' },

@@ -1,17 +1,24 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
-  title: { default: 'Qurioss', template: '%s | Qurioss' },
+  title: { default: 'Qurios', template: '%s | Qurios' },
   description: '5分で解決。全国の講師とリアルタイムマッチングする学習SNS。脳科学が証明した授業設計。',
   keywords: ['学習', 'オンライン授業', '家庭教師', 'マッチング', '勉強', '受験'],
   openGraph: {
-    title: 'Qurioss — 5分で解決する学習革命',
+    title: 'Qurios — 5分で解決する学習革命',
     description: '困った課題を投稿するだけで全国の講師が5分で解説。',
     url: 'https://qurio.jp',
-    siteName: 'Qurioss',
+    siteName: 'Qurios',
     locale: 'ja_JP',
     type: 'website',
   },
@@ -19,6 +26,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#F7F8FA' },
     { media: '(prefers-color-scheme: dark)', color: '#0A0C10' },
@@ -27,12 +37,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="ja" suppressHydrationWarning className={inter.variable}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
@@ -41,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             toastOptions={{
               duration: 3000,
               style: {
-                fontFamily: 'DM Sans, sans-serif',
+                fontFamily: 'var(--font-inter), Hiragino Sans, Yu Gothic, system-ui, sans-serif',
                 fontSize: '13px',
                 fontWeight: 500,
                 borderRadius: '10px',

@@ -157,7 +157,7 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen">
-      <div className="w-full max-w-[460px] flex-shrink-0 bg-[--surface] border-r border-[--border] flex flex-col p-10 overflow-y-auto">
+      <div className="w-full max-w-[460px] flex-shrink-0 bg-[--surface] border-r border-[--border] flex flex-col p-6 md:p-10 overflow-y-auto">
         <Link href="/" className="text-xl font-bold text-[--blue] mb-8 tracking-tight no-underline">Qurios</Link>
 
         <div className="flex border border-[--border] rounded-[12px] overflow-hidden mb-6">
