@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg:        #F7F8FA;
+    --surface:   #FFFFFF;
+    --surface2:  #F0F2F5;
+    --border:    #E8EAF0;
+    --border2:   #D1D5DB;
+    --text:      #111318;
+    --text2:     #6B7280;
+    --text3:     #9CA3AF;
+    --blue:      #2563EB;
+    --blue-lt:   #EFF4FF;
+    --blue-mid:  #DBEAFE;
+    --teal:      #0D9488;
+    --teal-lt:   #F0FDFA;
+    --amber:     #D97706;
+    --amber-lt:  #FFFBEB;
+    --green:     #16A34A;
+    --green-lt:  #F0FDF4;
+    --red:       #DC2626;
+    --red-lt:    #FEF2F2;
+    --purple:    #7C3AED;
+    --purple-lt: #F5F3FF;
+  }
+
+  .dark {
+    --bg:        #0A0C10;
+    --surface:   #111720;
+    --surface2:  #171E2C;
+    --border:    rgba(255,255,255,0.08);
+    --border2:   rgba(255,255,255,0.14);
+    --text:      #F1F5F9;
+    --text2:     #94A3B8;
+    --text3:     #475569;
+    --blue-lt:   rgba(37,99,235,0.12);
+    --blue-mid:  rgba(37,99,235,0.25);
+    --teal-lt:   rgba(13,148,136,0.1);
+    --amber-lt:  rgba(217,119,6,0.1);
+    --green-lt:  rgba(22,163,74,0.1);
+    --red-lt:    rgba(220,38,38,0.1);
+    --purple-lt: rgba(124,58,237,0.1);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-[--bg] text-[--text] font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[--blue] text-white rounded-[10px] px-6 py-3 text-sm font-semibold
+           transition-all hover:opacity-90 active:scale-[0.98] cursor-pointer border-none;
+  }
+  .btn-outline {
+    @apply bg-transparent text-[--text2] rounded-[10px] px-5 py-3 text-sm font-medium
+           border border-[--border2] transition-all hover:bg-[--surface2] cursor-pointer;
+  }
+  .card {
+    @apply bg-[--surface] border border-[--border] rounded-2xl overflow-hidden;
+  }
+  .input {
+    @apply w-full bg-[--surface] border border-[--border] rounded-[10px]
+           px-4 py-3 text-sm text-[--text] font-sans outline-none
+           transition-all focus:border-[--blue];
+  }
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-[--text2] text-sm
+           cursor-pointer transition-all hover:bg-[--surface2] hover:text-[--text]
+           border-none bg-transparent font-sans text-left w-full;
+  }
+  .nav-item.active {
+    @apply bg-[--blue-lt] text-[--blue] font-medium;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+  .toggle-switch {
+    @apply relative inline-block w-11 h-6;
+  }
+  .toggle-switch input { @apply sr-only; }
+  .toggle-track {
+    @apply absolute cursor-pointer inset-0 bg-[--border2] rounded-full transition-colors;
+  }
+  .toggle-switch input:checked + .toggle-track { @apply bg-[--blue]; }
+  .toggle-thumb {
+    @apply absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform shadow-sm;
+  }
+  .toggle-switch input:checked ~ .toggle-thumb { @apply translate-x-5; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* Toast animations */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.toast-enter { animation: slideIn 0.3s ease; }
+
+/* Additional utility classes */
+@layer components {
+  .input {
+    @apply w-full bg-[--surface] border-[1.5px] border-[--border] rounded-[10px]
+           px-4 py-3 text-sm text-[--text] font-sans outline-none
+           transition-all focus:border-[--blue] placeholder:text-[--text3];
+  }
+}
